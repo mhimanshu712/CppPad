@@ -2,8 +2,10 @@
 
 using namespace std;
 
-int kadane(int * arr, int n){
-	int curr = 0, max = 0;
+typedef long long ll;
+
+ll kadane(int * arr, int n){
+	ll curr = 0, max = 0;
 	for(int i=0;i<n;i++){
 		curr = curr + arr[i];
 		if(curr > max) max = curr;
@@ -19,6 +21,6 @@ int main(){
 	int * arr = new int[n];
 	for(int i=0;i<n;i++) cin>>arr[i];
 
-	int ans = kadane(arr,n);
+	ll ans = kadane(arr,n);
 	cout<<"The ans is: "<<ans<<endl;
 }

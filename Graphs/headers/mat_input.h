@@ -3,10 +3,11 @@
 
 typedef struct {
 	int n;
+	int e;
 	int * * ptr;
 }matrix;
 
-matrix  input_mat(){
+matrix  mat_input(){
 	matrix  mt;
 	printf("\nEnter number of Vertices: ");
 	int n;
@@ -19,14 +20,15 @@ matrix  input_mat(){
 	int e;
 	printf("Enter the number of Edges: ");
 	scanf("%d",&e);
-	printf("Enter each each edge pairwise: ");
-	int a,b;
+	printf("Enter each each edge pairwise and corresponding weight: ");
+	int a,b,w;
 	for(int i=0;i<e;i++){
-		scanf("%d %d",&a,&b);
-		at[a][b] = at[b][a] = 1;
+		scanf("%d %d %d",&a,&b,&w);
+		at[a][b] = at[b][a] = w;
 	}
 	
 	mt.ptr=at;
 	mt.n = n;
+	mt.e = e;
 	return mt;
 }
