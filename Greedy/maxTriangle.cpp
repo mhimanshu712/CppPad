@@ -4,7 +4,7 @@ using namespace std;
 typedef long long ll;
 
 void work(ll * arr,int n){
-    for(int i=0;i<n;i++){
+    for(int i=0;i<n-2;i++){
         ll z = arr[i+1] + arr[i+2];
         if(arr[i]<z){
             cout<<arr[i+2]<<" "<<arr[i+1]<<" "<<arr[i];
