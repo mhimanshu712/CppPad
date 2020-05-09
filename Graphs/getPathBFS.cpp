@@ -35,18 +35,18 @@ int main()
     int V, E;
     cin >> V >> E;
     int** arr = new int*[V];
-        for(int i=0;i<V;i++) arr[i] = new int[V]();
-        bool * vis = new bool[V]();
+    for(int i=0;i<V;i++) arr[i] = new int[V]();
+    bool * vis = new bool[V]();
 
-        while(E--){
-            int a,b;
-            cin>>a>>b;
-            arr[a][b] = 1;
-            arr[b][a] = 1;
-        }
-
+    while(E--){
         int a,b;
         cin>>a>>b;
+        arr[a][b] = 1;
+        arr[b][a] = 1;
+    }
+
+    int a,b;
+    cin>>a>>b;
     
     pathBFS(arr,vis,V,a,b);
 
