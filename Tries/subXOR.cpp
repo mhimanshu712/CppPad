@@ -21,6 +21,7 @@ void insert(int val,node* head){
 		}
 	}
     // Why this?
+    // Draw tree
     curr->leaf++;
 }
 
