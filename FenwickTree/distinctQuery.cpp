@@ -29,7 +29,7 @@ int value(int index,int* bit){
 int main(){
 	int n; cin>>n;
 	int* arr = new int[n+1];
-	for(int i=0;i<=n;i++) cin>>arr[i];
+	for(int i=1;i<=n;i++) cin>>arr[i];
 	int q; cin>>q;
 	event* query = new event[q];
 	for(int i=0;i<q;i++){
@@ -44,7 +44,7 @@ int main(){
 	int total = 0;
 	int k = 0;
 	int* last = new int[MMAX+1];
-	for(int i=0;i<MMAX;i++) last[i] = -1;
+	for(int i=0;i<=MMAX;i++) last[i] = -1;
 
 	for(int i=1;i<=n;i++){
 		if(last[arr[i]] != -1){
