@@ -22,7 +22,7 @@ node extEuclid(int a,int b){
 }
 
 int main(){
-	node ans = extEuclid(15,10);
+	node ans = extEuclid(21,99);
 	cout<<ans.x<<" "<<ans.y<<" "<<ans.gcd;
 	return 0;
 }
