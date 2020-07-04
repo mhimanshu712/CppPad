@@ -25,7 +25,7 @@ llong mmInverse(llong a,llong m){
     llong ans = extEuclid(a,m).x;
     //if(ans<0) (ans += m);
     //return ans%m;
-    return (ans+m)%m;
+    return (ans%m +m)%m;
 }
 
 int main(){
