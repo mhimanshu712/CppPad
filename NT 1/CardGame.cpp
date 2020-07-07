@@ -32,34 +32,44 @@ bool cmpMap(map<llong,llong> factk,map<llong,llong> curr){
 }
 
 int main(){
-	llong n,k;
+  llong n,k;
     cin>>n>>k;
     llong* arr = new llong[n];
     for(llong i=0;i<n;i++) cin>>arr[i];
     
     map<llong,llong> factk = getPrimeFactors(k);
-    for(auto i : factk){
-      cout<<i.first<<"  "<<i.second<<endl;
-    }
-    // llong count = 0;
-    // for(llong i=0;i<n;i++){
-    //     map<llong,llong> curr;
+//    llong count = 0;
+//     for(llong i=0;i<n;i++){
+//         map<llong,llong> curr;
         
-    //    for(llong j=i;j<n;j++){
-    //        map<llong,llong> t = getPrimeFactors(arr[j]);
-    //        for(auto i : t){
-    //            curr[i.first] += i.second;
-    //        }
+//        for(llong j=i;j<n;j++){
+//            map<llong,llong> t = getPrimeFactors(arr[j]);
+//            for(auto i : t){
+//                curr[i.first] += i.second;
+//            }
            
-    //        if(cmpMap(factk,curr)){
-    //           cout<<"For "<<i<<" "<<j<<endl;
-    //            count += n-j;
-    //            break;
-    //        }
-    //    }
+//            if(cmpMap(factk,curr)){
+//                count += n-j;
+//                break;
+//            }
+//        }
+    llong i = 0,j=-1, count=0;
+    map<llong,llong> curr;
+    while(1){
+        if(cmpMap(factk,curr)){
+            count += n-j;
+            map<llong,llong> t = getPrimeFactors(arr[i]);
+            for(auto i : t) curr[i.first] -= i.second;
+            i++; if(i>=n) break;
+        }else{
+            j++;
+            if(j>=n) break;
+            map<llong,llong> t = getPrimeFactors(arr[j]);
+            for(auto i : t) curr[i.first] += i.second;
+        }
+    }
         
-    // }
     
-    //cout<<count;
-	return 0;
+    cout<<count;
+  return 0;
 }
