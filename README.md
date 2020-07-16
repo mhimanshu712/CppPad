@@ -1,4 +1,6 @@
 # CppPad
+![MIT](https://img.shields.io/badge/license-MIT-brightgreen)
+
 Popular Algorithms, Data stucture implementation and Coding Questions solved elegantly in C++.<br>
 Each problem has been categorized and put into its respective folder.<br>
 Each question has a .txt file, in which the problem has been explained,
