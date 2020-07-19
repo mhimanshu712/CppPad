@@ -1,0 +1,3 @@
+An example of the use of "two pointer technique"
+We need to find two numbers in the array such that their sum equal to a target value.
+The array provided must be sorted.

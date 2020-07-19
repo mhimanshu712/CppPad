@@ -24,6 +24,7 @@ map<llong,llong> getPrimeFactors(llong n){
     return res;
 }
 
+
 bool cmpMap(map<llong,llong> factk,map<llong,llong> curr){
     for(auto i : factk){
         if(curr[i.first] < i.second) return false;
@@ -38,34 +39,40 @@ int main(){
     for(llong i=0;i<n;i++) cin>>arr[i];
     
     map<llong,llong> factk = getPrimeFactors(k);
-//    llong count = 0;
-//     for(llong i=0;i<n;i++){
-//         map<llong,llong> curr;
-        
-//        for(llong j=i;j<n;j++){
-//            map<llong,llong> t = getPrimeFactors(arr[j]);
-//            for(auto i : t){
-//                curr[i.first] += i.second;
-//            }
-           
-//            if(cmpMap(factk,curr)){
-//                count += n-j;
-//                break;
-//            }
-//        }
+    
     llong i = 0,j=-1, count=0;
     map<llong,llong> curr;
     while(1){
         if(cmpMap(factk,curr)){
             count += n-j;
-            map<llong,llong> t = getPrimeFactors(arr[i]);
-            for(auto i : t) curr[i.first] -= i.second;
+            // map<llong,llong> t = getPrimeFactors(arr[i]);
+            // for(auto i : t) curr[i.first] -= i.second;
+            
+            for(auto k : factk){
+                int x = k.first;
+                int l = arr[i];
+                
+                while(l%x == 0){
+                    curr[x]--; l/=x;
+                }
+            }
+            
             i++; if(i>=n) break;
         }else{
             j++;
             if(j>=n) break;
-            map<llong,llong> t = getPrimeFactors(arr[j]);
-            for(auto i : t) curr[i.first] += i.second;
+            //map<llong,llong> t = getPrimeFactors(arr[j]);
+            //for(auto i : t) curr[i.first] += i.second;
+            for(auto i : factk){
+                int x = i.first;
+                int l = arr[j];
+
+                while(l%x == 0){
+                    curr[x]++; l/=x;
+                }
+            }
+            
+            
         }
     }
         

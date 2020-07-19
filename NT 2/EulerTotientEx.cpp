@@ -2,6 +2,7 @@
 
 using namespace std;
 
+// Or say getPhi() :)
 void eulerPhi(int n){
 	int phi[n+1];
 	for(int i=1;i<=n;i++) phi[i]=i;

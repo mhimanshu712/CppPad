@@ -4,12 +4,13 @@ using namespace std;
 int power(int x,int n,int mod){
 	if(n == 0) return 1;
 
+	llong ans;
 	if(n%2 == 0){
 		long val = power(x,n/2,mod);
-		long ans = (val*val)%mod;
+		ans = (val*val)%mod;
 	}else{
 		long val = power(x,n-1,mod);
-		long ans = x%mod;
+		ans = x%mod;
 		ans = (val*ans)%mod;
 	}
 
