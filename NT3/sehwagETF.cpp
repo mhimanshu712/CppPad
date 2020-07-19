@@ -28,9 +28,9 @@ int main() {
         for(ll i = 0;i<=(r-l);i++) arr[i] = brr[i] = i+l;
         
         for(auto prime : primes){
-            ll a = prime*(l/prime);
-            while(a<l) a+=prime;
-            for(ll i=a;i<=r;i+=prime){
+            ll base = prime*(l/prime);
+            while(base<l) base+=prime;
+            for(ll i=base;i<=r;i+=prime){
                 arr[i-l] = (arr[i-l]*(prime-1))/prime;
                 while(brr[i-l]%prime==0) brr[i-l] /= prime;
             }
@@ -47,6 +47,7 @@ int main() {
         }
         
         float res = (float)num/(r-l+1);
+        //cout<<fixed<<setprecision(6)<<res<<endl;  //Why this crap
         printf("%f\n",res);
         
     }
